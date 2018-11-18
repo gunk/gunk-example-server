@@ -1,0 +1,10 @@
+[generate go]
+	plugins=grpc
+
+[generate grpc-gateway]
+	logtostderr=true
+
+[generate python]
+
+[generate]
+	protoc=js
