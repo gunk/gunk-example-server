@@ -2,7 +2,7 @@
 // defined in echo.gunk.
 package main
 
-//go:generate gunk generate .
+//go:generate gunk generate ./...
 
 import (
 	"context"
