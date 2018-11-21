@@ -16,7 +16,11 @@ before_install:
   - unzip -qq /tmp/protobuf/protobuf.jar -d /tmp/protobuf && mv /tmp/protobuf/google $PWD
   - chmod +x $PWD/protoc/protoc
   - go get -u github.com/gunk/gunk
+  - go get -u github.com/golang/protobuf/protoc-gen-go
+  - go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 install:
   - export PATH=$PWD/protoc/:$PATH
   - gunk generate -v -x ./...
   - go install -v .
+script:
+  - ls -Ral swagger.json v1
