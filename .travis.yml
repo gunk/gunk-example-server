@@ -17,5 +17,6 @@ before_script:
   - chmod +x $PWD/protoc/protoc
   - export PATH=$PWD/protoc/:$PATH
   - go get -u github.com/gunk/gunk
+install: false
 script:
   - go generate && go build
