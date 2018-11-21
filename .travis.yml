@@ -15,5 +15,8 @@ before_install:
   - wget -O /tmp/protobuf/protobuf.jar https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar
   - unzip -qq /tmp/protobuf/protobuf.jar -d /tmp/protobuf && mv /tmp/protobuf/google $PWD
   - chmod +x $PWD/protoc/protoc
+  - go get -u github.com/gunk/gunk
+install:
   - export PATH=$PWD/protoc/:$PATH
-  - go get -u github.com/gunk/gunk && gunk generate ./...
+  - gunk generate -v -x ./...
+  - go install -v .
