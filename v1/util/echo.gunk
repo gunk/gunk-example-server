@@ -1,7 +1,7 @@
 package util
 
 import (
-	"github.com/gunk/opt"
+	"github.com/gunk/opt/field"
 	"github.com/gunk/opt/http"
 )
 
@@ -26,7 +26,7 @@ const (
 type CheckStatusResponse struct {
 	Status Status `pb:"1"`
 
-	// +gunk opt.Deprecated(true)
+	// +gunk field.Deprecated(true)
 	OldField int `pb:"2"`
 }
 
