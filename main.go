@@ -12,6 +12,7 @@ import (
 	goog "github.com/golang/protobuf/ptypes/empty"
 	pb "github.com/gunk/gunk-example-server/v1/util"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 // Server is a util server.
@@ -36,6 +37,7 @@ func main() {
 		log.Fatal(err)
 	}
 	s := grpc.NewServer()
+	reflection.Register(s)
 	pb.RegisterUtilServer(s, &Server{})
 	log.Fatal(s.Serve(l))
 }
