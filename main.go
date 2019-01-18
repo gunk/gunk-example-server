@@ -2,12 +2,14 @@
 // defined in echo.gunk.
 package main
 
-//go:generate gunk generate ./...
+//go:generate go run github.com/gunk/gunk generate ./...
 
 import (
 	"context"
 	"log"
 	"net"
+
+	_ "github.com/gunk/gunk"
 
 	goog "github.com/golang/protobuf/ptypes/empty"
 	pb "github.com/gunk/gunk-example-server/v1/util"
