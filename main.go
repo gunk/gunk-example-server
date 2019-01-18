@@ -9,12 +9,11 @@ import (
 	"log"
 	"net"
 
-	_ "github.com/gunk/gunk"
-
 	goog "github.com/golang/protobuf/ptypes/empty"
-	pb "github.com/gunk/gunk-example-server/v1/util"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+
+	pb "github.com/gunk/gunk-example-server/v1/util"
 )
 
 // Server is a util server.
