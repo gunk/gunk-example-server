@@ -1,8 +1,8 @@
 // Command util is a simple gRPC server for the Gunk services and methods
-// defined in echo.gunk.
+// defined in v1/util/echo.gunk.
 package main
 
-//go:generate go run github.com/gunk/gunk generate ./...
+//go:generate gunk generate ./...
 
 import (
 	"context"
