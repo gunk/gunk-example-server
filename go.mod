@@ -8,7 +8,7 @@ require (
 	github.com/bmatcuk/doublestar v1.1.5 // indirect
 	github.com/emicklei/proto v1.8.0 // indirect
 	github.com/golang/protobuf v1.3.2
-	github.com/grpc-ecosystem/grpc-gateway v1.11.3 // indirect
+	github.com/grpc-ecosystem/grpc-gateway v1.11.3
 	github.com/gunk/gunk v0.2.0
 	github.com/magiconair/properties v1.8.1 // indirect
 	github.com/mattn/go-runewidth v0.0.5 // indirect
