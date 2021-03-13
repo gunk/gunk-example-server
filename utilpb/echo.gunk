@@ -1,4 +1,4 @@
-package util
+package utilpb
 
 import (
 	"github.com/gunk/opt/field"

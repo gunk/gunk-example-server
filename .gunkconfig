@@ -1,6 +1,8 @@
-; generate go libs, with grpc plugins
+; generate go definitions
 [generate go]
-	plugins=grpc
+
+; generate go grpc definitions
+[generate go-grpc]
 
 ; generate js libs
 [generate js]
@@ -9,5 +11,5 @@
 [generate python]
 
 ; generate swagger configs, writing files to .
-[generate swagger]
+[generate openapiv2]
 	out=.
