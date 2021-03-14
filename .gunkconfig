@@ -4,12 +4,15 @@
 ; generate go grpc definitions
 [generate go-grpc]
 
+; generate grpc-gateway (writing to cmd/grpc-gateway)
+[generate grpc-gateway]
+
 ; generate js libs
 [generate js]
 
 ; generate python libs
 [generate python]
 
-; generate swagger configs, writing files to .
+; generate openapiv2 json (writing to .)
 [generate openapiv2]
 	out=.

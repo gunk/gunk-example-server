@@ -1,3 +1,7 @@
 /gunk-example-server
 /gunk-example-server.exe
+/gunk-example-server-gw
+/gunk-example-server-gw.exe
+/cmd/gunk-example-server-gw/gunk-example-server-gw
+/cmd/gunk-example-server-gw/gunk-example-server-gw.exe
 /all.swagger.json
