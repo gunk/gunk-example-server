@@ -1,4 +1,7 @@
-/*.pb.go
 /*_pb2.py
+/*_pb.d.ts
+/*.pb.go
 /*.pb.gw.go
 /*.js
+*.swift
+*.java

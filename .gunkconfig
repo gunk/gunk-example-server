@@ -1,18 +1,16 @@
-; generate go definitions
+;-----------------------------------------
+; used by gunk-example-server
+; and gunk-example-server-gw
 [generate go]
-
-; generate go grpc definitions
 [generate go-grpc]
-
-; generate grpc-gateway (writing to cmd/grpc-gateway)
 [generate grpc-gateway]
+[generate openapiv2] ; openapiv2 (swagger)
+	out=. ; writes ./all.swagger.json
 
-; generate js libs
-[generate js]
-
-; generate python libs
+;-----------------------------------------
+; other languages
+[generate java]
+[generate js] ; javscript
 [generate python]
-
-; generate openapiv2 json (writing to .)
-[generate openapiv2]
-	out=.
+[generate swift]
+[generate ts] ; typescript
