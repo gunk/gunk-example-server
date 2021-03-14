@@ -1,7 +1,10 @@
+// +gunk java.Package("gunk.example-server")
+// +gunk java.MultipleFiles(true)
 package utilpb
 
 import (
 	"github.com/gunk/opt/field"
+	"github.com/gunk/opt/file/java"
 	"github.com/gunk/opt/http"
 )
 
