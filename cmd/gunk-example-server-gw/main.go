@@ -11,6 +11,7 @@ import (
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/gunk/gunk-example-server/utilpb"
+	csv "github.com/matoubidou/grpc-gateway-csv"
 	"google.golang.org/grpc"
 )
 
@@ -28,7 +29,7 @@ func main() {
 func run(ctx context.Context, addr, endpoint string) error {
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
-	mux := runtime.NewServeMux()
+	mux := runtime.NewServeMux(runtime.WithMarshalerOption("text/csv", &csv.Marshaler{}))
 	opts := []grpc.DialOption{grpc.WithInsecure()}
 	if err := utilpb.RegisterUtilHandlerFromEndpoint(ctx, mux, endpoint, opts); err != nil {
 		return err

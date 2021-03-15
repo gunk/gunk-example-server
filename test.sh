@@ -2,11 +2,7 @@
 
 # run both gunk-example-server and gunk-example-server-gw to test this
 
-MSG=$1
-if [ -z "$MSG" ]; then
-  echo "usage: $0 <MSG>"
-  exit 1
-fi
+MSG="hello $USER"
 
 set -e
 
@@ -20,3 +16,11 @@ curl \
   -X POST \
   -d "{\"msg\": \"$MSG\"}" \
   http://localhost:9091/v1/echo|jq '.'
+
+curl \
+  -s \
+  "http://localhost:9091/v1/echo?msg=$(echo -n "$MSG"|jq -sRr @uri)"|jq '.'
+
+curl \
+  -s \
+  http://localhost:9091/v1/countries/us,cn|jq '.'

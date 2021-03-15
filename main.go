@@ -5,14 +5,20 @@ package main
 //go:generate gunk generate ./...
 
 import (
+	"bytes"
 	"context"
+	"encoding/csv"
 	"flag"
 	"fmt"
+	"io"
 	"net"
 	"os"
+	"strings"
 
+	"github.com/gunk/gunk-example-server/assets"
 	"github.com/gunk/gunk-example-server/utilpb"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
@@ -53,4 +59,37 @@ func (s *Server) CheckStatus(ctx context.Context, req *emptypb.Empty) (*utilpb.C
 // Echo echoes the passed message.
 func (s *Server) Echo(ctx context.Context, msg *utilpb.Message) (*utilpb.Message, error) {
 	return msg, nil
+}
+
+// GetCountries returns a list of countries.
+func (s *Server) GetCountries(ctx context.Context, req *utilpb.GetCountriesRequest) (*utilpb.GetCountriesResponse, error) {
+	countries := make(map[string]*utilpb.Country)
+	var filter map[string]bool
+	if len(req.Countries) != 0 {
+		filter = make(map[string]bool)
+		for _, code := range req.Countries {
+			filter[strings.TrimSpace(strings.ToUpper(code))] = true
+		}
+	}
+	r := csv.NewReader(bytes.NewReader(assets.Countries))
+loop:
+	for {
+		line, err := r.Read()
+		switch {
+		case err != nil && err == io.EOF:
+			break loop
+		case err != nil:
+			return nil, grpc.Errorf(codes.Internal, "unable to read country data")
+		}
+		if filter != nil && !filter[line[1]] {
+			continue
+		}
+		countries[line[1]] = &utilpb.Country{
+			Name: line[0],
+			Code: line[1],
+		}
+	}
+	return &utilpb.GetCountriesResponse{
+		Countries: countries,
+	}, nil
 }

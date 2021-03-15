@@ -10,8 +10,20 @@ import (
 
 // Util is a util service.
 type Util interface {
+	// CheckStatus returns the server health status.
+	//
+	// +gunk http.Match{
+	//         Method: "GET",
+	//         Path:   "/v1/status",
+	// }
+	CheckStatus() CheckStatusResponse
+
 	// Echo echoes a message.
 	//
+	// +gunk http.Match{
+	//         Method: "GET",
+	//         Path:   "/v1/echo",
+	// }
 	// +gunk http.Match{
 	//         Method: "POST",
 	//         Path:   "/v1/echo",
@@ -19,20 +31,19 @@ type Util interface {
 	// }
 	Echo(Message) Message
 
-	// CheckStatus returns the server health status.
+	// GetCountries returns a list of countries identified by their iso code.
+	// (showcases multiple http matching rules with a filter).
 	//
 	// +gunk http.Match{
 	//         Method: "GET",
-	//         Path:   "/v1/echo",
+	//         Path:   "/v1/countries",
 	// }
-	CheckStatus() CheckStatusResponse
-}
+	// +gunk http.Match{
+	//         Method: "GET",
+	//         Path:   "/v1/countries/{Countries}",
 
-// Message is a echo message.
-type Message struct {
-	// Msg holds a message.
-	Msg  string `pb:"1" json:"msg"`
-	Code int    `pb:"2" json:"code"`
+	// }
+	GetCountries(GetCountriesRequest) GetCountriesResponse
 }
 
 // Status is a server health status.
@@ -45,10 +56,33 @@ const (
 	OK
 )
 
+// Message is a echo message.
+type Message struct {
+	// Msg holds a message.
+	Msg  string `pb:"1" json:"msg"`
+	Code int    `pb:"2" json:"code"`
+}
+
+// Country contains country information.
+type Country struct {
+	Name string `pb:"1" json:"name"`
+	Code string `pb:"2" json:"code"`
+}
+
 // CheckStatusResponse is the server health status response.
 type CheckStatusResponse struct {
-	Status Status `pb:"1"`
+	Status Status `pb:"1" json:"status"`
 
 	// +gunk field.Deprecated(true)
-	OldField int `pb:"2"`
+	OldField int `pb:"2" json:"old_field"`
+}
+
+// GetCountriesRequest is the get countries request.
+type GetCountriesRequest struct {
+	Countries []string `pb:"1" json:"countries"`
+}
+
+// GetCountriesResponse is the get countries response.
+type GetCountriesResponse struct {
+	Countries map[string]Country `pb:"1" json:"countries"`
 }
