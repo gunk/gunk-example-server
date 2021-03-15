@@ -2,6 +2,7 @@
 ; used by gunk-example-server
 ; and gunk-example-server-gw
 [generate go]
+	json_tag_postproc=true
 [generate go-grpc]
 [generate grpc-gateway]
 [generate openapiv2] ; openapiv2 (swagger)
@@ -10,7 +11,13 @@
 ;-----------------------------------------
 ; other languages
 [generate java]
+	lite
+[generate grpc-java]
+	lite
 [generate js] ; javscript
+	fix_paths_postproc=true
+	import_style=commonjs
+	binary
 [generate python]
 [generate swift]
 [generate ts] ; typescript

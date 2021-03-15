@@ -41,7 +41,6 @@ type Util interface {
 	// +gunk http.Match{
 	//         Method: "GET",
 	//         Path:   "/v1/countries/{Countries}",
-
 	// }
 	GetCountries(GetCountriesRequest) GetCountriesResponse
 }
