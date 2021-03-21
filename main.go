@@ -63,7 +63,6 @@ func (s *Server) Echo(ctx context.Context, msg *utilpb.Message) (*utilpb.Message
 
 // GetCountries returns a list of countries.
 func (s *Server) GetCountries(ctx context.Context, req *utilpb.GetCountriesRequest) (*utilpb.GetCountriesResponse, error) {
-	countries := make(map[string]*utilpb.Country)
 	var filter map[string]bool
 	if len(req.Countries) != 0 {
 		filter = make(map[string]bool)
@@ -71,6 +70,7 @@ func (s *Server) GetCountries(ctx context.Context, req *utilpb.GetCountriesReque
 			filter[strings.TrimSpace(strings.ToUpper(code))] = true
 		}
 	}
+	countries := make(map[string]*utilpb.Country)
 	r := csv.NewReader(bytes.NewReader(assets.Countries))
 loop:
 	for {
