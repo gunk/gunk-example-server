@@ -6,21 +6,30 @@ MSG="hello $USER"
 
 set -e
 
-grpcurl \
-  -plaintext \
-  -d "{\"msg\": \"$MSG\"}" \
-  localhost:9090 utilpb.Util/Echo|jq '.'
+(set -x;
+  grpcurl \
+    -plaintext \
+    -d "{\"msg\": \"$MSG\"}" \
+    localhost:9090 utilpb.Util/Echo
+)|jq '.'
 
-curl \
-  -s \
-  -X POST \
-  -d "{\"msg\": \"$MSG\"}" \
-  http://localhost:9091/v1/echo|jq '.'
+(set -x;
+  curl \
+    -s \
+    -X POST \
+    -d "{\"msg\": \"$MSG\"}" \
+    http://localhost:9091/v1/echo
+)|jq '.'
 
-curl \
-  -s \
-  "http://localhost:9091/v1/echo?msg=$(echo -n "$MSG"|jq -sRr @uri)"|jq '.'
+QUERY=$(echo -n "$MSG"|jq -sRr @uri)
+(set -x;
+  curl \
+    -s \
+    "http://localhost:9091/v1/echo?msg=$QUERY"
+)|jq '.'
 
-curl \
-  -s \
-  http://localhost:9091/v1/countries/us,cn|jq '.'
+(set -x;
+  curl \
+    -s \
+    http://localhost:9091/v1/countries/us,cn
+)|jq '.'
