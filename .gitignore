@@ -4,4 +4,12 @@
 /gunk-example-server-gw.exe
 /cmd/gunk-example-server-gw/gunk-example-server-gw
 /cmd/gunk-example-server-gw/gunk-example-server-gw.exe
-/all.swagger.json
+
+/api/v1/all.swagger.json
+*_pb2.py
+*_pb.d.ts
+*.pb.go
+*.pb.gw.go
+*.js
+*.swift
+*.java

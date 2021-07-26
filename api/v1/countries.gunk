@@ -1,0 +1,41 @@
+// +gunk java.Package("example.api.v1")
+// +gunk java.MultipleFiles(true)
+package v1
+
+import (
+	"github.com/gunk/opt/field"
+	"github.com/gunk/opt/file/java"
+	"github.com/gunk/opt/http"
+)
+
+// CountriesService is the countries service.
+type CountriesService interface {
+	// GetCountries returns a list of countries identified by their ISO code.
+	// (showcases multiple http matching rules with a filter).
+	//
+	// +gunk http.Match{
+	//         Method: "GET",
+	//         Path:   "/v1/countries",
+	// }
+	// +gunk http.Match{
+	//         Method: "GET",
+	//         Path:   "/v1/countries/{Countries}",
+	// }
+	GetCountries(GetCountriesRequest) GetCountriesResponse
+}
+
+// Country contains country information.
+type Country struct {
+	Name string `pb:"1" json:"name"`
+	Code string `pb:"2" json:"code"`
+}
+
+// GetCountriesRequest is the get countries request.
+type GetCountriesRequest struct {
+	Countries []string `pb:"1" json:"countries"`
+}
+
+// GetCountriesResponse is the get countries response.
+type GetCountriesResponse struct {
+	Countries map[string]Country `pb:"1" json:"countries"`
+}

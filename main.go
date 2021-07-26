@@ -1,5 +1,5 @@
-// Command util is a simple gRPC server for the Gunk services and methods
-// defined in utilpb/echo.gunk.
+// Command util is a simple gRPC server for Gunk services and methods defined
+// in api/v1.
 package main
 
 //go:generate gunk generate ./...
@@ -15,12 +15,13 @@ import (
 	"os"
 	"strings"
 
-	"github.com/gunk/gunk-example-server/assets"
-	"github.com/gunk/gunk-example-server/utilpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/protobuf/types/known/emptypb"
+
+	examplepb "github.com/gunk/gunk-example-server/api/v1"
+	"github.com/gunk/gunk-example-server/assets"
 )
 
 func main() {
@@ -34,35 +35,46 @@ func main() {
 
 // run creates and runs the util server.
 func run(ctx context.Context, addr string) error {
+	// build server
+	srv := grpc.NewServer()
+	reflection.Register(srv)
+	_ = NewServer(srv)
+	// listen and serve
 	l, err := (&net.ListenConfig{}).Listen(ctx, "tcp", addr)
 	if err != nil {
 		return err
 	}
-	s := grpc.NewServer()
-	reflection.Register(s)
-	utilpb.RegisterUtilServer(s, &Server{})
-	return s.Serve(l)
+	return srv.Serve(l)
 }
 
 // Server is a util server.
 type Server struct {
-	utilpb.UnimplementedUtilServer
+	examplepb.UnimplementedCountriesServiceServer
+	examplepb.UnimplementedUtilServiceServer
+}
+
+// NewServer creates a new server.
+func NewServer(srv *grpc.Server) *Server {
+	s := &Server{}
+	examplepb.RegisterCountriesServiceServer(srv, s)
+	examplepb.RegisterUtilServiceServer(srv, s)
+	return s
 }
 
 // CheckStatus checks the status of the util server.
-func (s *Server) CheckStatus(ctx context.Context, req *emptypb.Empty) (*utilpb.CheckStatusResponse, error) {
-	return &utilpb.CheckStatusResponse{
-		Status: utilpb.Status_OK,
+func (s *Server) CheckStatus(ctx context.Context, req *emptypb.Empty) (*examplepb.CheckStatusResponse, error) {
+	return &examplepb.CheckStatusResponse{
+		Status: examplepb.Status_OK,
 	}, nil
 }
 
 // Echo echoes the passed message.
-func (s *Server) Echo(ctx context.Context, msg *utilpb.Message) (*utilpb.Message, error) {
+func (s *Server) Echo(ctx context.Context, msg *examplepb.Message) (*examplepb.Message, error) {
 	return msg, nil
 }
 
 // GetCountries returns a list of countries.
-func (s *Server) GetCountries(ctx context.Context, req *utilpb.GetCountriesRequest) (*utilpb.GetCountriesResponse, error) {
+func (s *Server) GetCountries(ctx context.Context, req *examplepb.GetCountriesRequest) (*examplepb.GetCountriesResponse, error) {
 	var filter map[string]bool
 	if len(req.Countries) != 0 {
 		filter = make(map[string]bool)
@@ -70,7 +82,7 @@ func (s *Server) GetCountries(ctx context.Context, req *utilpb.GetCountriesReque
 			filter[strings.TrimSpace(strings.ToUpper(code))] = true
 		}
 	}
-	countries := make(map[string]*utilpb.Country)
+	countries := make(map[string]*examplepb.Country)
 	r := csv.NewReader(bytes.NewReader(assets.Countries))
 loop:
 	for {
@@ -84,12 +96,12 @@ loop:
 		if filter != nil && !filter[line[1]] {
 			continue
 		}
-		countries[line[1]] = &utilpb.Country{
+		countries[line[1]] = &examplepb.Country{
 			Name: line[0],
 			Code: line[1],
 		}
 	}
-	return &utilpb.GetCountriesResponse{
+	return &examplepb.GetCountriesResponse{
 		Countries: countries,
 	}, nil
 }

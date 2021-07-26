@@ -6,7 +6,7 @@
 [generate go-grpc]
 [generate grpc-gateway]
 [generate openapiv2] ; openapiv2 (swagger)
-	out=. ; writes ./all.swagger.json
+	out=./api/v1 ; writes ./all.swagger.json
 
 ;-----------------------------------------
 ; other languages
@@ -19,5 +19,5 @@
 	import_style=commonjs
 	binary
 [generate python]
-[generate swift]
+;[generate swift]
 [generate ts] ; typescript

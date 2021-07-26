@@ -1,6 +1,6 @@
-// +gunk java.Package("gunk.example-server")
+// +gunk java.Package("example.api.v1")
 // +gunk java.MultipleFiles(true)
-package utilpb
+package v1
 
 import (
 	"github.com/gunk/opt/field"
@@ -8,8 +8,8 @@ import (
 	"github.com/gunk/opt/http"
 )
 
-// Util is a util service.
-type Util interface {
+// UtilService is the util service.
+type UtilService interface {
 	// CheckStatus returns the server health status.
 	//
 	// +gunk http.Match{
@@ -30,19 +30,6 @@ type Util interface {
 	//         Body:   "*",
 	// }
 	Echo(Message) Message
-
-	// GetCountries returns a list of countries identified by their iso code.
-	// (showcases multiple http matching rules with a filter).
-	//
-	// +gunk http.Match{
-	//         Method: "GET",
-	//         Path:   "/v1/countries",
-	// }
-	// +gunk http.Match{
-	//         Method: "GET",
-	//         Path:   "/v1/countries/{Countries}",
-	// }
-	GetCountries(GetCountriesRequest) GetCountriesResponse
 }
 
 // Status is a server health status.
@@ -62,26 +49,10 @@ type Message struct {
 	Code int    `pb:"2" json:"code"`
 }
 
-// Country contains country information.
-type Country struct {
-	Name string `pb:"1" json:"name"`
-	Code string `pb:"2" json:"code"`
-}
-
 // CheckStatusResponse is the server health status response.
 type CheckStatusResponse struct {
 	Status Status `pb:"1" json:"status"`
 
 	// +gunk field.Deprecated(true)
 	OldField int `pb:"2" json:"old_field"`
-}
-
-// GetCountriesRequest is the get countries request.
-type GetCountriesRequest struct {
-	Countries []string `pb:"1" json:"countries"`
-}
-
-// GetCountriesResponse is the get countries response.
-type GetCountriesResponse struct {
-	Countries map[string]Country `pb:"1" json:"countries"`
 }

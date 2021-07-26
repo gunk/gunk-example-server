@@ -10,7 +10,7 @@ set -e
   grpcurl \
     -plaintext \
     -d "{\"msg\": \"$MSG\"}" \
-    localhost:9090 utilpb.Util/Echo
+    localhost:9090 v1.UtilService/Echo
 )|jq '.'
 
 (set -x;
