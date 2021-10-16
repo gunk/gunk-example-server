@@ -44,6 +44,7 @@ func run(ctx context.Context, addr string) error {
 	if err != nil {
 		return err
 	}
+	defer l.Close()
 	return srv.Serve(l)
 }
 

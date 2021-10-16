@@ -58,5 +58,6 @@ func run(ctx context.Context, addr, endpoint, spec string) error {
 	if err != nil {
 		return err
 	}
+	defer l.Close()
 	return http.Serve(l, mux)
 }
