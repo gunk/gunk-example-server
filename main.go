@@ -15,13 +15,11 @@ import (
 	"os"
 	"strings"
 
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/reflection"
-	"google.golang.org/protobuf/types/known/emptypb"
-
 	examplepb "github.com/gunk/gunk-example-server/api/v1"
 	"github.com/gunk/gunk-example-server/assets"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
+	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 func main() {
@@ -38,7 +36,10 @@ func run(ctx context.Context, addr string) error {
 	// build server
 	srv := grpc.NewServer()
 	reflection.Register(srv)
-	_ = NewServer(srv)
+	_, err := NewServer(srv)
+	if err != nil {
+		return err
+	}
 	// listen and serve
 	l, err := (&net.ListenConfig{}).Listen(ctx, "tcp", addr)
 	if err != nil {
@@ -52,14 +53,33 @@ func run(ctx context.Context, addr string) error {
 type Server struct {
 	examplepb.UnimplementedCountriesServiceServer
 	examplepb.UnimplementedUtilServiceServer
+	countries map[string]*examplepb.Country
 }
 
 // NewServer creates a new server.
-func NewServer(srv *grpc.Server) *Server {
-	s := &Server{}
+func NewServer(srv *grpc.Server) (*Server, error) {
+	countries := make(map[string]*examplepb.Country)
+	r := csv.NewReader(bytes.NewReader(assets.Countries))
+loop:
+	for {
+		line, err := r.Read()
+		switch {
+		case err != nil && err == io.EOF:
+			break loop
+		case err != nil:
+			return nil, fmt.Errorf("unable to read country data: %w", err)
+		}
+		countries[line[1]] = &examplepb.Country{
+			Name: line[0],
+			Code: line[1],
+		}
+	}
+	s := &Server{
+		countries: countries,
+	}
 	examplepb.RegisterCountriesServiceServer(srv, s)
 	examplepb.RegisterUtilServiceServer(srv, s)
-	return s
+	return s, nil
 }
 
 // CheckStatus checks the status of the util server.
@@ -76,30 +96,16 @@ func (s *Server) Echo(ctx context.Context, msg *examplepb.Message) (*examplepb.M
 
 // GetCountries returns a list of countries.
 func (s *Server) GetCountries(ctx context.Context, req *examplepb.GetCountriesRequest) (*examplepb.GetCountriesResponse, error) {
-	var filter map[string]bool
-	if len(req.Countries) != 0 {
-		filter = make(map[string]bool)
-		for _, code := range req.Countries {
-			filter[strings.TrimSpace(strings.ToUpper(code))] = true
-		}
-	}
-	countries := make(map[string]*examplepb.Country)
-	r := csv.NewReader(bytes.NewReader(assets.Countries))
-loop:
-	for {
-		line, err := r.Read()
-		switch {
-		case err != nil && err == io.EOF:
-			break loop
-		case err != nil:
-			return nil, grpc.Errorf(codes.Internal, "unable to read country data")
-		}
-		if filter != nil && !filter[line[1]] {
-			continue
-		}
-		countries[line[1]] = &examplepb.Country{
-			Name: line[0],
-			Code: line[1],
+	var countries map[string]*examplepb.Country
+	if len(req.Countries) == 0 {
+		countries = s.countries
+	} else {
+		countries = make(map[string]*examplepb.Country)
+		for _, id := range req.Countries {
+			id = strings.ToUpper(id)
+			if c, ok := s.countries[id]; ok {
+				countries[id] = c
+			}
 		}
 	}
 	return &examplepb.GetCountriesResponse{

@@ -31,5 +31,11 @@ QUERY=$(echo -n "$MSG"|jq -sRr @uri)
 (set -x;
   curl \
     -s \
+    http://localhost:9091/v1/countries
+)|jq '.'
+
+(set -x;
+  curl \
+    -s \
     http://localhost:9091/v1/countries/us,cn
 )|jq '.'
