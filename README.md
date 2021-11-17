@@ -30,4 +30,7 @@ $ go build ./cmd/gunk-example-server-gw && ./gunk-example-server-gw
 $ ./test.sh
 ```
 
+The OpenAPI (ie, Swagger) definitions can be viewed with ReDoc by visiting
+[localhost:9091/redoc](http://localhost:9091/redoc).
+
 [gunk]: https://github.com/gunk/gunk
