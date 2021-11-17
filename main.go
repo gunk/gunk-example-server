@@ -7,6 +7,7 @@ package main
 import (
 	"bytes"
 	"context"
+	_ "embed"
 	"encoding/csv"
 	"flag"
 	"fmt"
@@ -16,7 +17,6 @@ import (
 	"strings"
 
 	examplepb "github.com/gunk/gunk-example-server/api/v1"
-	"github.com/gunk/gunk-example-server/assets"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/protobuf/types/known/emptypb"
@@ -59,7 +59,7 @@ type Server struct {
 // NewServer creates a new server.
 func NewServer(srv *grpc.Server) (*Server, error) {
 	countries := make(map[string]*examplepb.Country)
-	r := csv.NewReader(bytes.NewReader(assets.Countries))
+	r := csv.NewReader(bytes.NewReader(countriesCsv))
 loop:
 	for {
 		line, err := r.Read()
@@ -112,3 +112,6 @@ func (s *Server) GetCountries(ctx context.Context, req *examplepb.GetCountriesRe
 		Countries: countries,
 	}, nil
 }
+
+//go:embed countries.csv
+var countriesCsv []byte
