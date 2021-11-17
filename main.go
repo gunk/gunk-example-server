@@ -1,4 +1,4 @@
-// Command util is a simple gRPC server for Gunk services and methods defined
+// Command util is an example gRPC server for Gunk services and methods defined
 // in api/v1.
 package main
 
