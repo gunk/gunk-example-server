@@ -3,6 +3,7 @@ module github.com/gunk/gunk-example-server
 go 1.17
 
 require (
+	github.com/fullstorydev/grpcurl v1.8.5
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.6.0
 	github.com/gunk/gunk v0.9.3
 	github.com/kenshaw/redoc v0.1.3
@@ -17,9 +18,14 @@ require (
 	github.com/alecthomas/kingpin v2.2.6+incompatible // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20210927113745-59d0afb8317a // indirect
+	github.com/census-instrumentation/opencensus-proto v0.2.1 // indirect
+	github.com/cespare/xxhash/v2 v2.1.1 // indirect
 	github.com/chromedp/omahaproxy v0.1.3 // indirect
-	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/cncf/udpa/go v0.0.0-20210930031921-04548b0d99d4 // indirect
+	github.com/cncf/xds/go v0.0.0-20211011173535-cb28da3451f1 // indirect
 	github.com/emicklei/proto v1.9.1 // indirect
+	github.com/envoyproxy/go-control-plane v0.9.10-0.20210907150352-cf90f659a021 // indirect
+	github.com/envoyproxy/protoc-gen-validate v0.1.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/glog v1.0.0 // indirect
@@ -29,6 +35,7 @@ require (
 	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
 	github.com/gorilla/css v1.0.0 // indirect
 	github.com/gunk/opt v0.1.0 // indirect
+	github.com/jhump/protoreflect v1.10.1 // indirect
 	github.com/karelbilek/dirchanges v0.0.0-20210218071031-880a92f1a313 // indirect
 	github.com/kenshaw/diskcache v0.5.1 // indirect
 	github.com/kenshaw/httplog v0.4.0 // indirect

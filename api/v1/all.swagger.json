@@ -1,0 +1,277 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "github.com/gunk/gunk-example-server/api/v1/all.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "CountriesService"
+    },
+    {
+      "name": "UtilService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/countries": {
+      "get": {
+        "summary": "GetCountries returns a list of countries identified by their ISO code.\n(showcases multiple http matching rules with a filter).",
+        "operationId": "CountriesService_GetCountries",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetCountriesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "countries",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "CountriesService"
+        ]
+      }
+    },
+    "/v1/countries/{countries}": {
+      "get": {
+        "summary": "GetCountries returns a list of countries identified by their ISO code.\n(showcases multiple http matching rules with a filter).",
+        "operationId": "CountriesService_GetCountries2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetCountriesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "countries",
+            "in": "path",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "minItems": 1
+          }
+        ],
+        "tags": [
+          "CountriesService"
+        ]
+      }
+    },
+    "/v1/echo": {
+      "get": {
+        "summary": "Echo echoes a message.",
+        "operationId": "UtilService_Echo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Message"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "msg",
+            "description": "Msg holds a message.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "UtilService"
+        ]
+      },
+      "post": {
+        "summary": "Echo echoes a message.",
+        "operationId": "UtilService_Echo2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Message"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Message"
+            }
+          }
+        ],
+        "tags": [
+          "UtilService"
+        ]
+      }
+    },
+    "/v1/status": {
+      "get": {
+        "summary": "CheckStatus returns the server health status.",
+        "operationId": "UtilService_CheckStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CheckStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "UtilService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "v1CheckStatusResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/v1Status"
+        },
+        "old_field": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "description": "CheckStatusResponse is the server health status response."
+    },
+    "v1Country": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "description": "Country contains country information."
+    },
+    "v1GetCountriesResponse": {
+      "type": "object",
+      "properties": {
+        "countries": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/v1Country"
+          }
+        }
+      },
+      "description": "GetCountriesResponse is the get countries response."
+    },
+    "v1Message": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string",
+          "description": "Msg holds a message."
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "description": "Message is a echo message."
+    },
+    "v1Status": {
+      "type": "string",
+      "enum": [
+        "Unknown",
+        "Error",
+        "OK"
+      ],
+      "default": "Unknown",
+      "description": "Status is a server health status."
+    }
+  }
+}

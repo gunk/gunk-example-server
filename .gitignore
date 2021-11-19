@@ -6,10 +6,3 @@
 /cmd/gunk-example-server-gw/gunk-example-server-gw.exe
 
 /api/v1/all.swagger.json
-*_pb2.py
-*_pb.d.ts
-*.pb.go
-*.pb.gw.go
-*.js
-*.swift
-*.java

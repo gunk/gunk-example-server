@@ -6,7 +6,7 @@
 [generate go-grpc]
 [generate grpc-gateway]
 [generate openapiv2] ; openapiv2 (swagger)
-	out=./api/v1 ; writes ./all.swagger.json
+	out=./api/v1 ; out destination (here as an example)
 
 ;-----------------------------------------
 ; other languages
