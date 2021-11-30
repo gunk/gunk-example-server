@@ -51,8 +51,8 @@ func run(ctx context.Context, addr string) error {
 
 // Server is a util server.
 type Server struct {
-	examplepb.UnimplementedCountriesServiceServer
-	examplepb.UnimplementedUtilServiceServer
+	examplepb.UnimplementedCountriesServer
+	examplepb.UnimplementedUtilServer
 	countries map[string]*examplepb.Country
 }
 
@@ -77,8 +77,8 @@ loop:
 	s := &Server{
 		countries: countries,
 	}
-	examplepb.RegisterCountriesServiceServer(srv, s)
-	examplepb.RegisterUtilServiceServer(srv, s)
+	examplepb.RegisterCountriesServer(srv, s)
+	examplepb.RegisterUtilServer(srv, s)
 	return s, nil
 }
 

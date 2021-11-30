@@ -20,16 +20,16 @@ from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='all.proto',
-  package='v1',
+  package='gunk.example.v1',
   syntax='proto3',
-  serialized_options=_b('\n\016example.api.v1H\001P\001Z-github.com/gunk/gunk-example-server/api/v1;v1\200\001\000\210\001\000\220\001\000\270\001\000\330\001\000\370\001\001\320\002\000'),
-  serialized_pb=_b('\n\tall.proto\x12\x02v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/protobuf/empty.proto\"Q\n\x07\x43ountry\x12\x1e\n\x04Name\x18\x01 \x01(\tB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x04name\x12\x1e\n\x04\x43ode\x18\x02 \x01(\tB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x04\x63ode:\x06\x08\x00\x10\x00\x18\x00\"G\n\x13GetCountriesRequest\x12(\n\tCountries\x18\x01 \x03(\tB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\tcountries:\x06\x08\x00\x10\x00\x18\x00\"\xb0\x01\n\x14GetCountriesResponse\x12Q\n\tCountries\x18\x01 \x03(\x0b\x32\'.v1.GetCountriesResponse.CountriesEntryB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\tcountries\x1a=\n\x0e\x43ountriesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1a\n\x05value\x18\x02 \x01(\x0b\x32\x0b.v1.Country:\x02\x38\x01:\x06\x08\x00\x10\x00\x18\x00\"O\n\x07Message\x12\x1c\n\x03Msg\x18\x01 \x01(\tB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x03msg\x12\x1e\n\x04\x43ode\x18\x02 \x01(\x05\x42\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x04\x63ode:\x06\x08\x00\x10\x00\x18\x00\"v\n\x13\x43heckStatusResponse\x12.\n\x06Status\x18\x01 \x01(\x0e\x32\n.v1.StatusB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x06status\x12\'\n\x08OldField\x18\x02 \x01(\x05\x42\n\x08\x00\x18\x01(\x00\x30\x00P\x00R\told_field:\x06\x08\x00\x10\x00\x18\x00*8\n\x06Status\x12\x0f\n\x07Unknown\x10\x00\x1a\x02\x08\x00\x12\r\n\x05\x45rror\x10\x01\x1a\x02\x08\x00\x12\n\n\x02OK\x10\x02\x1a\x02\x08\x00\x1a\x02\x18\x00\x32\x94\x01\n\x10\x43ountriesService\x12{\n\x0cGetCountries\x12\x17.v1.GetCountriesRequest\x1a\x18.v1.GetCountriesResponse\"8\x88\x02\x00\x90\x02\x00\x82\xd3\xe4\x93\x02,Z\x1b\x12\x19/v1/countries/{Countries}\x12\r/v1/countries\x1a\x03\x88\x02\x00\x32\xb5\x01\n\x0bUtilService\x12X\n\x0b\x43heckStatus\x12\x16.google.protobuf.Empty\x1a\x17.v1.CheckStatusResponse\"\x18\x88\x02\x00\x90\x02\x00\x82\xd3\xe4\x93\x02\x0c\x12\n/v1/status\x12G\n\x04\x45\x63ho\x12\x0b.v1.Message\x1a\x0b.v1.Message\"%\x88\x02\x00\x90\x02\x00\x82\xd3\xe4\x93\x02\x19Z\r:\x01*\"\x08/v1/echo\x12\x08/v1/echo\x1a\x03\x88\x02\x00\x42X\n\x0e\x65xample.api.v1H\x01P\x01Z-github.com/gunk/gunk-example-server/api/v1;v1\x80\x01\x00\x88\x01\x00\x90\x01\x00\xb8\x01\x00\xd8\x01\x00\xf8\x01\x01\xd0\x02\x00\x62\x06proto3')
+  serialized_options=_b('\n\017gunk.example.v1H\001P\001Z-github.com/gunk/gunk-example-server/api/v1;v1\200\001\000\210\001\000\220\001\000\270\001\000\330\001\000\370\001\001\320\002\000'),
+  serialized_pb=_b('\n\tall.proto\x12\x0fgunk.example.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/protobuf/empty.proto\"Q\n\x07\x43ountry\x12\x1e\n\x04Name\x18\x01 \x01(\tB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x04name\x12\x1e\n\x04\x43ode\x18\x02 \x01(\tB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x04\x63ode:\x06\x08\x00\x10\x00\x18\x00\"G\n\x13GetCountriesRequest\x12(\n\tCountries\x18\x01 \x03(\tB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\tcountries:\x06\x08\x00\x10\x00\x18\x00\"\xca\x01\n\x14GetCountriesResponse\x12^\n\tCountries\x18\x01 \x03(\x0b\x32\x34.gunk.example.v1.GetCountriesResponse.CountriesEntryB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\tcountries\x1aJ\n\x0e\x43ountriesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\'\n\x05value\x18\x02 \x01(\x0b\x32\x18.gunk.example.v1.Country:\x02\x38\x01:\x06\x08\x00\x10\x00\x18\x00\"O\n\x07Message\x12\x1c\n\x03Msg\x18\x01 \x01(\tB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x03msg\x12\x1e\n\x04\x43ode\x18\x02 \x01(\x05\x42\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x04\x63ode:\x06\x08\x00\x10\x00\x18\x00\"\x83\x01\n\x13\x43heckStatusResponse\x12;\n\x06Status\x18\x01 \x01(\x0e\x32\x17.gunk.example.v1.StatusB\n\x08\x00\x18\x00(\x00\x30\x00P\x00R\x06status\x12\'\n\x08OldField\x18\x02 \x01(\x05\x42\n\x08\x00\x18\x01(\x00\x30\x00P\x00R\told_field:\x06\x08\x00\x10\x00\x18\x00*8\n\x06Status\x12\x0f\n\x07Unknown\x10\x00\x1a\x02\x08\x00\x12\r\n\x05\x45rror\x10\x01\x1a\x02\x08\x00\x12\n\n\x02OK\x10\x02\x1a\x02\x08\x00\x1a\x02\x18\x00\x32\xa8\x01\n\tCountries\x12\x95\x01\n\x0cGetCountries\x12$.gunk.example.v1.GetCountriesRequest\x1a%.gunk.example.v1.GetCountriesResponse\"8\x88\x02\x00\x90\x02\x00\x82\xd3\xe4\x93\x02,Z\x1b\x12\x19/v1/countries/{Countries}\x12\r/v1/countries\x1a\x03\x88\x02\x00\x32\xd5\x01\n\x04Util\x12\x65\n\x0b\x43heckStatus\x12\x16.google.protobuf.Empty\x1a$.gunk.example.v1.CheckStatusResponse\"\x18\x88\x02\x00\x90\x02\x00\x82\xd3\xe4\x93\x02\x0c\x12\n/v1/status\x12\x61\n\x04\x45\x63ho\x12\x18.gunk.example.v1.Message\x1a\x18.gunk.example.v1.Message\"%\x88\x02\x00\x90\x02\x00\x82\xd3\xe4\x93\x02\x19Z\r:\x01*\"\x08/v1/echo\x12\x08/v1/echo\x1a\x03\x88\x02\x00\x42Y\n\x0fgunk.example.v1H\x01P\x01Z-github.com/gunk/gunk-example-server/api/v1;v1\x80\x01\x00\x88\x01\x00\x90\x01\x00\xb8\x01\x00\xd8\x01\x00\xf8\x01\x01\xd0\x02\x00\x62\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
 _STATUS = _descriptor.EnumDescriptor(
   name='Status',
-  full_name='v1.Status',
+  full_name='gunk.example.v1.Status',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -48,8 +48,8 @@ _STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=_b('\030\000'),
-  serialized_start=612,
-  serialized_end=668,
+  serialized_start=665,
+  serialized_end=721,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -62,20 +62,20 @@ OK = 2
 
 _COUNTRY = _descriptor.Descriptor(
   name='Country',
-  full_name='v1.Country',
+  full_name='gunk.example.v1.Country',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Name', full_name='v1.Country.Name', index=0,
+      name='Name', full_name='gunk.example.v1.Country.Name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\010\000\030\000(\0000\000P\000'), json_name='name', file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Code', full_name='v1.Country.Code', index=1,
+      name='Code', full_name='gunk.example.v1.Country.Code', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -93,20 +93,20 @@ _COUNTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=76,
-  serialized_end=157,
+  serialized_start=89,
+  serialized_end=170,
 )
 
 
 _GETCOUNTRIESREQUEST = _descriptor.Descriptor(
   name='GetCountriesRequest',
-  full_name='v1.GetCountriesRequest',
+  full_name='gunk.example.v1.GetCountriesRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Countries', full_name='v1.GetCountriesRequest.Countries', index=0,
+      name='Countries', full_name='gunk.example.v1.GetCountriesRequest.Countries', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -124,27 +124,27 @@ _GETCOUNTRIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=159,
-  serialized_end=230,
+  serialized_start=172,
+  serialized_end=243,
 )
 
 
 _GETCOUNTRIESRESPONSE_COUNTRIESENTRY = _descriptor.Descriptor(
   name='CountriesEntry',
-  full_name='v1.GetCountriesResponse.CountriesEntry',
+  full_name='gunk.example.v1.GetCountriesResponse.CountriesEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='v1.GetCountriesResponse.CountriesEntry.key', index=0,
+      name='key', full_name='gunk.example.v1.GetCountriesResponse.CountriesEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='v1.GetCountriesResponse.CountriesEntry.value', index=1,
+      name='value', full_name='gunk.example.v1.GetCountriesResponse.CountriesEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -162,19 +162,19 @@ _GETCOUNTRIESRESPONSE_COUNTRIESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=340,
-  serialized_end=401,
+  serialized_start=366,
+  serialized_end=440,
 )
 
 _GETCOUNTRIESRESPONSE = _descriptor.Descriptor(
   name='GetCountriesResponse',
-  full_name='v1.GetCountriesResponse',
+  full_name='gunk.example.v1.GetCountriesResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Countries', full_name='v1.GetCountriesResponse.Countries', index=0,
+      name='Countries', full_name='gunk.example.v1.GetCountriesResponse.Countries', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -192,27 +192,27 @@ _GETCOUNTRIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=233,
-  serialized_end=409,
+  serialized_start=246,
+  serialized_end=448,
 )
 
 
 _MESSAGE = _descriptor.Descriptor(
   name='Message',
-  full_name='v1.Message',
+  full_name='gunk.example.v1.Message',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Msg', full_name='v1.Message.Msg', index=0,
+      name='Msg', full_name='gunk.example.v1.Message.Msg', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\010\000\030\000(\0000\000P\000'), json_name='msg', file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Code', full_name='v1.Message.Code', index=1,
+      name='Code', full_name='gunk.example.v1.Message.Code', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -230,27 +230,27 @@ _MESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=411,
-  serialized_end=490,
+  serialized_start=450,
+  serialized_end=529,
 )
 
 
 _CHECKSTATUSRESPONSE = _descriptor.Descriptor(
   name='CheckStatusResponse',
-  full_name='v1.CheckStatusResponse',
+  full_name='gunk.example.v1.CheckStatusResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Status', full_name='v1.CheckStatusResponse.Status', index=0,
+      name='Status', full_name='gunk.example.v1.CheckStatusResponse.Status', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\010\000\030\000(\0000\000P\000'), json_name='status', file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='OldField', full_name='v1.CheckStatusResponse.OldField', index=1,
+      name='OldField', full_name='gunk.example.v1.CheckStatusResponse.OldField', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -268,8 +268,8 @@ _CHECKSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=492,
-  serialized_end=610,
+  serialized_start=532,
+  serialized_end=663,
 )
 
 _GETCOUNTRIESRESPONSE_COUNTRIESENTRY.fields_by_name['value'].message_type = _COUNTRY
@@ -287,14 +287,14 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 Country = _reflection.GeneratedProtocolMessageType('Country', (_message.Message,), {
   'DESCRIPTOR' : _COUNTRY,
   '__module__' : 'all_pb2'
-  # @@protoc_insertion_point(class_scope:v1.Country)
+  # @@protoc_insertion_point(class_scope:gunk.example.v1.Country)
   })
 _sym_db.RegisterMessage(Country)
 
 GetCountriesRequest = _reflection.GeneratedProtocolMessageType('GetCountriesRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETCOUNTRIESREQUEST,
   '__module__' : 'all_pb2'
-  # @@protoc_insertion_point(class_scope:v1.GetCountriesRequest)
+  # @@protoc_insertion_point(class_scope:gunk.example.v1.GetCountriesRequest)
   })
 _sym_db.RegisterMessage(GetCountriesRequest)
 
@@ -303,12 +303,12 @@ GetCountriesResponse = _reflection.GeneratedProtocolMessageType('GetCountriesRes
   'CountriesEntry' : _reflection.GeneratedProtocolMessageType('CountriesEntry', (_message.Message,), {
     'DESCRIPTOR' : _GETCOUNTRIESRESPONSE_COUNTRIESENTRY,
     '__module__' : 'all_pb2'
-    # @@protoc_insertion_point(class_scope:v1.GetCountriesResponse.CountriesEntry)
+    # @@protoc_insertion_point(class_scope:gunk.example.v1.GetCountriesResponse.CountriesEntry)
     })
   ,
   'DESCRIPTOR' : _GETCOUNTRIESRESPONSE,
   '__module__' : 'all_pb2'
-  # @@protoc_insertion_point(class_scope:v1.GetCountriesResponse)
+  # @@protoc_insertion_point(class_scope:gunk.example.v1.GetCountriesResponse)
   })
 _sym_db.RegisterMessage(GetCountriesResponse)
 _sym_db.RegisterMessage(GetCountriesResponse.CountriesEntry)
@@ -316,14 +316,14 @@ _sym_db.RegisterMessage(GetCountriesResponse.CountriesEntry)
 Message = _reflection.GeneratedProtocolMessageType('Message', (_message.Message,), {
   'DESCRIPTOR' : _MESSAGE,
   '__module__' : 'all_pb2'
-  # @@protoc_insertion_point(class_scope:v1.Message)
+  # @@protoc_insertion_point(class_scope:gunk.example.v1.Message)
   })
 _sym_db.RegisterMessage(Message)
 
 CheckStatusResponse = _reflection.GeneratedProtocolMessageType('CheckStatusResponse', (_message.Message,), {
   'DESCRIPTOR' : _CHECKSTATUSRESPONSE,
   '__module__' : 'all_pb2'
-  # @@protoc_insertion_point(class_scope:v1.CheckStatusResponse)
+  # @@protoc_insertion_point(class_scope:gunk.example.v1.CheckStatusResponse)
   })
 _sym_db.RegisterMessage(CheckStatusResponse)
 
@@ -348,18 +348,18 @@ _CHECKSTATUSRESPONSE.fields_by_name['Status']._options = None
 _CHECKSTATUSRESPONSE.fields_by_name['OldField']._options = None
 _CHECKSTATUSRESPONSE._options = None
 
-_COUNTRIESSERVICE = _descriptor.ServiceDescriptor(
-  name='CountriesService',
-  full_name='v1.CountriesService',
+_COUNTRIES = _descriptor.ServiceDescriptor(
+  name='Countries',
+  full_name='gunk.example.v1.Countries',
   file=DESCRIPTOR,
   index=0,
   serialized_options=_b('\210\002\000'),
-  serialized_start=671,
-  serialized_end=819,
+  serialized_start=724,
+  serialized_end=892,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetCountries',
-    full_name='v1.CountriesService.GetCountries',
+    full_name='gunk.example.v1.Countries.GetCountries',
     index=0,
     containing_service=None,
     input_type=_GETCOUNTRIESREQUEST,
@@ -367,23 +367,23 @@ _COUNTRIESSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=_b('\210\002\000\220\002\000\202\323\344\223\002,Z\033\022\031/v1/countries/{Countries}\022\r/v1/countries'),
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_COUNTRIESSERVICE)
+_sym_db.RegisterServiceDescriptor(_COUNTRIES)
 
-DESCRIPTOR.services_by_name['CountriesService'] = _COUNTRIESSERVICE
+DESCRIPTOR.services_by_name['Countries'] = _COUNTRIES
 
 
-_UTILSERVICE = _descriptor.ServiceDescriptor(
-  name='UtilService',
-  full_name='v1.UtilService',
+_UTIL = _descriptor.ServiceDescriptor(
+  name='Util',
+  full_name='gunk.example.v1.Util',
   file=DESCRIPTOR,
   index=1,
   serialized_options=_b('\210\002\000'),
-  serialized_start=822,
-  serialized_end=1003,
+  serialized_start=895,
+  serialized_end=1108,
   methods=[
   _descriptor.MethodDescriptor(
     name='CheckStatus',
-    full_name='v1.UtilService.CheckStatus',
+    full_name='gunk.example.v1.Util.CheckStatus',
     index=0,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -392,7 +392,7 @@ _UTILSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Echo',
-    full_name='v1.UtilService.Echo',
+    full_name='gunk.example.v1.Util.Echo',
     index=1,
     containing_service=None,
     input_type=_MESSAGE,
@@ -400,8 +400,8 @@ _UTILSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=_b('\210\002\000\220\002\000\202\323\344\223\002\031Z\r:\001*\"\010/v1/echo\022\010/v1/echo'),
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_UTILSERVICE)
+_sym_db.RegisterServiceDescriptor(_UTIL)
 
-DESCRIPTOR.services_by_name['UtilService'] = _UTILSERVICE
+DESCRIPTOR.services_by_name['Util'] = _UTIL
 
 # @@protoc_insertion_point(module_scope)

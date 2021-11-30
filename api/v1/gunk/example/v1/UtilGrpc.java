@@ -1,4 +1,4 @@
-package example.api.v1;
+package gunk.example.v1;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
@@ -7,36 +7,36 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.36.0)",
     comments = "Source: github.com/gunk/gunk-example-server/api/v1/all.proto")
-public final class UtilServiceGrpc {
+public final class UtilGrpc {
 
-  private UtilServiceGrpc() {}
+  private UtilGrpc() {}
 
-  public static final String SERVICE_NAME = "v1.UtilService";
+  public static final String SERVICE_NAME = "gunk.example.v1.Util";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      example.api.v1.CheckStatusResponse> getCheckStatusMethod;
+      gunk.example.v1.CheckStatusResponse> getCheckStatusMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CheckStatus",
       requestType = com.google.protobuf.Empty.class,
-      responseType = example.api.v1.CheckStatusResponse.class,
+      responseType = gunk.example.v1.CheckStatusResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      example.api.v1.CheckStatusResponse> getCheckStatusMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, example.api.v1.CheckStatusResponse> getCheckStatusMethod;
-    if ((getCheckStatusMethod = UtilServiceGrpc.getCheckStatusMethod) == null) {
-      synchronized (UtilServiceGrpc.class) {
-        if ((getCheckStatusMethod = UtilServiceGrpc.getCheckStatusMethod) == null) {
-          UtilServiceGrpc.getCheckStatusMethod = getCheckStatusMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, example.api.v1.CheckStatusResponse>newBuilder()
+      gunk.example.v1.CheckStatusResponse> getCheckStatusMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, gunk.example.v1.CheckStatusResponse> getCheckStatusMethod;
+    if ((getCheckStatusMethod = UtilGrpc.getCheckStatusMethod) == null) {
+      synchronized (UtilGrpc.class) {
+        if ((getCheckStatusMethod = UtilGrpc.getCheckStatusMethod) == null) {
+          UtilGrpc.getCheckStatusMethod = getCheckStatusMethod =
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, gunk.example.v1.CheckStatusResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CheckStatus"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-                  example.api.v1.CheckStatusResponse.getDefaultInstance()))
+                  gunk.example.v1.CheckStatusResponse.getDefaultInstance()))
               .build();
         }
       }
@@ -44,29 +44,29 @@ public final class UtilServiceGrpc {
     return getCheckStatusMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<example.api.v1.Message,
-      example.api.v1.Message> getEchoMethod;
+  private static volatile io.grpc.MethodDescriptor<gunk.example.v1.Message,
+      gunk.example.v1.Message> getEchoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "Echo",
-      requestType = example.api.v1.Message.class,
-      responseType = example.api.v1.Message.class,
+      requestType = gunk.example.v1.Message.class,
+      responseType = gunk.example.v1.Message.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<example.api.v1.Message,
-      example.api.v1.Message> getEchoMethod() {
-    io.grpc.MethodDescriptor<example.api.v1.Message, example.api.v1.Message> getEchoMethod;
-    if ((getEchoMethod = UtilServiceGrpc.getEchoMethod) == null) {
-      synchronized (UtilServiceGrpc.class) {
-        if ((getEchoMethod = UtilServiceGrpc.getEchoMethod) == null) {
-          UtilServiceGrpc.getEchoMethod = getEchoMethod =
-              io.grpc.MethodDescriptor.<example.api.v1.Message, example.api.v1.Message>newBuilder()
+  public static io.grpc.MethodDescriptor<gunk.example.v1.Message,
+      gunk.example.v1.Message> getEchoMethod() {
+    io.grpc.MethodDescriptor<gunk.example.v1.Message, gunk.example.v1.Message> getEchoMethod;
+    if ((getEchoMethod = UtilGrpc.getEchoMethod) == null) {
+      synchronized (UtilGrpc.class) {
+        if ((getEchoMethod = UtilGrpc.getEchoMethod) == null) {
+          UtilGrpc.getEchoMethod = getEchoMethod =
+              io.grpc.MethodDescriptor.<gunk.example.v1.Message, gunk.example.v1.Message>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Echo"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-                  example.api.v1.Message.getDefaultInstance()))
+                  gunk.example.v1.Message.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-                  example.api.v1.Message.getDefaultInstance()))
+                  gunk.example.v1.Message.getDefaultInstance()))
               .build();
         }
       }
@@ -77,50 +77,50 @@ public final class UtilServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static UtilServiceStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UtilServiceStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UtilServiceStub>() {
+  public static UtilStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<UtilStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UtilStub>() {
         @java.lang.Override
-        public UtilServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UtilServiceStub(channel, callOptions);
+        public UtilStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UtilStub(channel, callOptions);
         }
       };
-    return UtilServiceStub.newStub(factory, channel);
+    return UtilStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static UtilServiceBlockingStub newBlockingStub(
+  public static UtilBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UtilServiceBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UtilServiceBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<UtilBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UtilBlockingStub>() {
         @java.lang.Override
-        public UtilServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UtilServiceBlockingStub(channel, callOptions);
+        public UtilBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UtilBlockingStub(channel, callOptions);
         }
       };
-    return UtilServiceBlockingStub.newStub(factory, channel);
+    return UtilBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static UtilServiceFutureStub newFutureStub(
+  public static UtilFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UtilServiceFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UtilServiceFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<UtilFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UtilFutureStub>() {
         @java.lang.Override
-        public UtilServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UtilServiceFutureStub(channel, callOptions);
+        public UtilFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UtilFutureStub(channel, callOptions);
         }
       };
-    return UtilServiceFutureStub.newStub(factory, channel);
+    return UtilFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class UtilServiceImplBase implements io.grpc.BindableService {
+  public static abstract class UtilImplBase implements io.grpc.BindableService {
 
     /**
      * <pre>
@@ -128,7 +128,7 @@ public final class UtilServiceGrpc {
      * </pre>
      */
     public void checkStatus(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<example.api.v1.CheckStatusResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<gunk.example.v1.CheckStatusResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCheckStatusMethod(), responseObserver);
     }
 
@@ -137,8 +137,8 @@ public final class UtilServiceGrpc {
      * Echo echoes a message.
      * </pre>
      */
-    public void echo(example.api.v1.Message request,
-        io.grpc.stub.StreamObserver<example.api.v1.Message> responseObserver) {
+    public void echo(gunk.example.v1.Message request,
+        io.grpc.stub.StreamObserver<gunk.example.v1.Message> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEchoMethod(), responseObserver);
     }
 
@@ -149,14 +149,14 @@ public final class UtilServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.google.protobuf.Empty,
-                example.api.v1.CheckStatusResponse>(
+                gunk.example.v1.CheckStatusResponse>(
                   this, METHODID_CHECK_STATUS)))
           .addMethod(
             getEchoMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                example.api.v1.Message,
-                example.api.v1.Message>(
+                gunk.example.v1.Message,
+                gunk.example.v1.Message>(
                   this, METHODID_ECHO)))
           .build();
     }
@@ -164,16 +164,16 @@ public final class UtilServiceGrpc {
 
   /**
    */
-  public static final class UtilServiceStub extends io.grpc.stub.AbstractAsyncStub<UtilServiceStub> {
-    private UtilServiceStub(
+  public static final class UtilStub extends io.grpc.stub.AbstractAsyncStub<UtilStub> {
+    private UtilStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UtilServiceStub build(
+    protected UtilStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UtilServiceStub(channel, callOptions);
+      return new UtilStub(channel, callOptions);
     }
 
     /**
@@ -182,7 +182,7 @@ public final class UtilServiceGrpc {
      * </pre>
      */
     public void checkStatus(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<example.api.v1.CheckStatusResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<gunk.example.v1.CheckStatusResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCheckStatusMethod(), getCallOptions()), request, responseObserver);
     }
@@ -192,8 +192,8 @@ public final class UtilServiceGrpc {
      * Echo echoes a message.
      * </pre>
      */
-    public void echo(example.api.v1.Message request,
-        io.grpc.stub.StreamObserver<example.api.v1.Message> responseObserver) {
+    public void echo(gunk.example.v1.Message request,
+        io.grpc.stub.StreamObserver<gunk.example.v1.Message> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getEchoMethod(), getCallOptions()), request, responseObserver);
     }
@@ -201,16 +201,16 @@ public final class UtilServiceGrpc {
 
   /**
    */
-  public static final class UtilServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<UtilServiceBlockingStub> {
-    private UtilServiceBlockingStub(
+  public static final class UtilBlockingStub extends io.grpc.stub.AbstractBlockingStub<UtilBlockingStub> {
+    private UtilBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UtilServiceBlockingStub build(
+    protected UtilBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UtilServiceBlockingStub(channel, callOptions);
+      return new UtilBlockingStub(channel, callOptions);
     }
 
     /**
@@ -218,7 +218,7 @@ public final class UtilServiceGrpc {
      * CheckStatus returns the server health status.
      * </pre>
      */
-    public example.api.v1.CheckStatusResponse checkStatus(com.google.protobuf.Empty request) {
+    public gunk.example.v1.CheckStatusResponse checkStatus(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCheckStatusMethod(), getCallOptions(), request);
     }
@@ -228,7 +228,7 @@ public final class UtilServiceGrpc {
      * Echo echoes a message.
      * </pre>
      */
-    public example.api.v1.Message echo(example.api.v1.Message request) {
+    public gunk.example.v1.Message echo(gunk.example.v1.Message request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getEchoMethod(), getCallOptions(), request);
     }
@@ -236,16 +236,16 @@ public final class UtilServiceGrpc {
 
   /**
    */
-  public static final class UtilServiceFutureStub extends io.grpc.stub.AbstractFutureStub<UtilServiceFutureStub> {
-    private UtilServiceFutureStub(
+  public static final class UtilFutureStub extends io.grpc.stub.AbstractFutureStub<UtilFutureStub> {
+    private UtilFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UtilServiceFutureStub build(
+    protected UtilFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UtilServiceFutureStub(channel, callOptions);
+      return new UtilFutureStub(channel, callOptions);
     }
 
     /**
@@ -253,7 +253,7 @@ public final class UtilServiceGrpc {
      * CheckStatus returns the server health status.
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<example.api.v1.CheckStatusResponse> checkStatus(
+    public com.google.common.util.concurrent.ListenableFuture<gunk.example.v1.CheckStatusResponse> checkStatus(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCheckStatusMethod(), getCallOptions()), request);
@@ -264,8 +264,8 @@ public final class UtilServiceGrpc {
      * Echo echoes a message.
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<example.api.v1.Message> echo(
-        example.api.v1.Message request) {
+    public com.google.common.util.concurrent.ListenableFuture<gunk.example.v1.Message> echo(
+        gunk.example.v1.Message request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getEchoMethod(), getCallOptions()), request);
     }
@@ -279,10 +279,10 @@ public final class UtilServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final UtilServiceImplBase serviceImpl;
+    private final UtilImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(UtilServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(UtilImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -293,11 +293,11 @@ public final class UtilServiceGrpc {
       switch (methodId) {
         case METHODID_CHECK_STATUS:
           serviceImpl.checkStatus((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<example.api.v1.CheckStatusResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<gunk.example.v1.CheckStatusResponse>) responseObserver);
           break;
         case METHODID_ECHO:
-          serviceImpl.echo((example.api.v1.Message) request,
-              (io.grpc.stub.StreamObserver<example.api.v1.Message>) responseObserver);
+          serviceImpl.echo((gunk.example.v1.Message) request,
+              (io.grpc.stub.StreamObserver<gunk.example.v1.Message>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -320,7 +320,7 @@ public final class UtilServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (UtilServiceGrpc.class) {
+      synchronized (UtilGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)

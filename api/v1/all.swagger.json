@@ -6,10 +6,10 @@
   },
   "tags": [
     {
-      "name": "CountriesService"
+      "name": "Countries"
     },
     {
-      "name": "UtilService"
+      "name": "Util"
     }
   ],
   "consumes": [
@@ -22,7 +22,7 @@
     "/v1/countries": {
       "get": {
         "summary": "GetCountries returns a list of countries identified by their ISO code.\n(showcases multiple http matching rules with a filter).",
-        "operationId": "CountriesService_GetCountries",
+        "operationId": "Countries_GetCountries",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -50,14 +50,14 @@
           }
         ],
         "tags": [
-          "CountriesService"
+          "Countries"
         ]
       }
     },
     "/v1/countries/{countries}": {
       "get": {
         "summary": "GetCountries returns a list of countries identified by their ISO code.\n(showcases multiple http matching rules with a filter).",
-        "operationId": "CountriesService_GetCountries2",
+        "operationId": "Countries_GetCountries2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -86,14 +86,14 @@
           }
         ],
         "tags": [
-          "CountriesService"
+          "Countries"
         ]
       }
     },
     "/v1/echo": {
       "get": {
         "summary": "Echo echoes a message.",
-        "operationId": "UtilService_Echo",
+        "operationId": "Util_Echo",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -125,12 +125,12 @@
           }
         ],
         "tags": [
-          "UtilService"
+          "Util"
         ]
       },
       "post": {
         "summary": "Echo echoes a message.",
-        "operationId": "UtilService_Echo2",
+        "operationId": "Util_Echo2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -156,14 +156,14 @@
           }
         ],
         "tags": [
-          "UtilService"
+          "Util"
         ]
       }
     },
     "/v1/status": {
       "get": {
         "summary": "CheckStatus returns the server health status.",
-        "operationId": "UtilService_CheckStatus",
+        "operationId": "Util_CheckStatus",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -179,12 +179,22 @@
           }
         },
         "tags": [
-          "UtilService"
+          "Util"
         ]
       }
     }
   },
   "definitions": {
+    "examplev1Status": {
+      "type": "string",
+      "enum": [
+        "Unknown",
+        "Error",
+        "OK"
+      ],
+      "default": "Unknown",
+      "description": "Status is a server health status."
+    },
     "googlerpcStatus": {
       "type": "object",
       "properties": {
@@ -216,7 +226,7 @@
       "type": "object",
       "properties": {
         "status": {
-          "$ref": "#/definitions/v1Status"
+          "$ref": "#/definitions/examplev1Status"
         },
         "old_field": {
           "type": "integer",
@@ -262,16 +272,6 @@
         }
       },
       "description": "Message is a echo message."
-    },
-    "v1Status": {
-      "type": "string",
-      "enum": [
-        "Unknown",
-        "Error",
-        "OK"
-      ],
-      "default": "Unknown",
-      "description": "Status is a server health status."
     }
   }
 }

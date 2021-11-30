@@ -1,4 +1,5 @@
-// +gunk java.Package("example.api.v1")
+// +gunk proto.Package("gunk.example.v1")
+// +gunk java.Package("gunk.example.v1")
 // +gunk java.MultipleFiles(true)
 package v1
 
@@ -6,10 +7,11 @@ import (
 	"github.com/gunk/opt/field"
 	"github.com/gunk/opt/file/java"
 	"github.com/gunk/opt/http"
+	"github.com/gunk/opt/proto"
 )
 
-// CountriesService is the countries service.
-type CountriesService interface {
+// Countries is the countries service.
+type Countries interface {
 	// GetCountries returns a list of countries identified by their ISO code.
 	// (showcases multiple http matching rules with a filter).
 	//

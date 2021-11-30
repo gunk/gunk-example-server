@@ -1,4 +1,4 @@
-package example.api.v1;
+package gunk.example.v1;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
@@ -7,36 +7,36 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.36.0)",
     comments = "Source: github.com/gunk/gunk-example-server/api/v1/all.proto")
-public final class CountriesServiceGrpc {
+public final class CountriesGrpc {
 
-  private CountriesServiceGrpc() {}
+  private CountriesGrpc() {}
 
-  public static final String SERVICE_NAME = "v1.CountriesService";
+  public static final String SERVICE_NAME = "gunk.example.v1.Countries";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<example.api.v1.GetCountriesRequest,
-      example.api.v1.GetCountriesResponse> getGetCountriesMethod;
+  private static volatile io.grpc.MethodDescriptor<gunk.example.v1.GetCountriesRequest,
+      gunk.example.v1.GetCountriesResponse> getGetCountriesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetCountries",
-      requestType = example.api.v1.GetCountriesRequest.class,
-      responseType = example.api.v1.GetCountriesResponse.class,
+      requestType = gunk.example.v1.GetCountriesRequest.class,
+      responseType = gunk.example.v1.GetCountriesResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<example.api.v1.GetCountriesRequest,
-      example.api.v1.GetCountriesResponse> getGetCountriesMethod() {
-    io.grpc.MethodDescriptor<example.api.v1.GetCountriesRequest, example.api.v1.GetCountriesResponse> getGetCountriesMethod;
-    if ((getGetCountriesMethod = CountriesServiceGrpc.getGetCountriesMethod) == null) {
-      synchronized (CountriesServiceGrpc.class) {
-        if ((getGetCountriesMethod = CountriesServiceGrpc.getGetCountriesMethod) == null) {
-          CountriesServiceGrpc.getGetCountriesMethod = getGetCountriesMethod =
-              io.grpc.MethodDescriptor.<example.api.v1.GetCountriesRequest, example.api.v1.GetCountriesResponse>newBuilder()
+  public static io.grpc.MethodDescriptor<gunk.example.v1.GetCountriesRequest,
+      gunk.example.v1.GetCountriesResponse> getGetCountriesMethod() {
+    io.grpc.MethodDescriptor<gunk.example.v1.GetCountriesRequest, gunk.example.v1.GetCountriesResponse> getGetCountriesMethod;
+    if ((getGetCountriesMethod = CountriesGrpc.getGetCountriesMethod) == null) {
+      synchronized (CountriesGrpc.class) {
+        if ((getGetCountriesMethod = CountriesGrpc.getGetCountriesMethod) == null) {
+          CountriesGrpc.getGetCountriesMethod = getGetCountriesMethod =
+              io.grpc.MethodDescriptor.<gunk.example.v1.GetCountriesRequest, gunk.example.v1.GetCountriesResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetCountries"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-                  example.api.v1.GetCountriesRequest.getDefaultInstance()))
+                  gunk.example.v1.GetCountriesRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-                  example.api.v1.GetCountriesResponse.getDefaultInstance()))
+                  gunk.example.v1.GetCountriesResponse.getDefaultInstance()))
               .build();
         }
       }
@@ -47,50 +47,50 @@ public final class CountriesServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static CountriesServiceStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<CountriesServiceStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<CountriesServiceStub>() {
+  public static CountriesStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<CountriesStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CountriesStub>() {
         @java.lang.Override
-        public CountriesServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new CountriesServiceStub(channel, callOptions);
+        public CountriesStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CountriesStub(channel, callOptions);
         }
       };
-    return CountriesServiceStub.newStub(factory, channel);
+    return CountriesStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static CountriesServiceBlockingStub newBlockingStub(
+  public static CountriesBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<CountriesServiceBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<CountriesServiceBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<CountriesBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CountriesBlockingStub>() {
         @java.lang.Override
-        public CountriesServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new CountriesServiceBlockingStub(channel, callOptions);
+        public CountriesBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CountriesBlockingStub(channel, callOptions);
         }
       };
-    return CountriesServiceBlockingStub.newStub(factory, channel);
+    return CountriesBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static CountriesServiceFutureStub newFutureStub(
+  public static CountriesFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<CountriesServiceFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<CountriesServiceFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<CountriesFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CountriesFutureStub>() {
         @java.lang.Override
-        public CountriesServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new CountriesServiceFutureStub(channel, callOptions);
+        public CountriesFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CountriesFutureStub(channel, callOptions);
         }
       };
-    return CountriesServiceFutureStub.newStub(factory, channel);
+    return CountriesFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class CountriesServiceImplBase implements io.grpc.BindableService {
+  public static abstract class CountriesImplBase implements io.grpc.BindableService {
 
     /**
      * <pre>
@@ -98,8 +98,8 @@ public final class CountriesServiceGrpc {
      * (showcases multiple http matching rules with a filter).
      * </pre>
      */
-    public void getCountries(example.api.v1.GetCountriesRequest request,
-        io.grpc.stub.StreamObserver<example.api.v1.GetCountriesResponse> responseObserver) {
+    public void getCountries(gunk.example.v1.GetCountriesRequest request,
+        io.grpc.stub.StreamObserver<gunk.example.v1.GetCountriesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCountriesMethod(), responseObserver);
     }
 
@@ -109,8 +109,8 @@ public final class CountriesServiceGrpc {
             getGetCountriesMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                example.api.v1.GetCountriesRequest,
-                example.api.v1.GetCountriesResponse>(
+                gunk.example.v1.GetCountriesRequest,
+                gunk.example.v1.GetCountriesResponse>(
                   this, METHODID_GET_COUNTRIES)))
           .build();
     }
@@ -118,16 +118,16 @@ public final class CountriesServiceGrpc {
 
   /**
    */
-  public static final class CountriesServiceStub extends io.grpc.stub.AbstractAsyncStub<CountriesServiceStub> {
-    private CountriesServiceStub(
+  public static final class CountriesStub extends io.grpc.stub.AbstractAsyncStub<CountriesStub> {
+    private CountriesStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected CountriesServiceStub build(
+    protected CountriesStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new CountriesServiceStub(channel, callOptions);
+      return new CountriesStub(channel, callOptions);
     }
 
     /**
@@ -136,8 +136,8 @@ public final class CountriesServiceGrpc {
      * (showcases multiple http matching rules with a filter).
      * </pre>
      */
-    public void getCountries(example.api.v1.GetCountriesRequest request,
-        io.grpc.stub.StreamObserver<example.api.v1.GetCountriesResponse> responseObserver) {
+    public void getCountries(gunk.example.v1.GetCountriesRequest request,
+        io.grpc.stub.StreamObserver<gunk.example.v1.GetCountriesResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetCountriesMethod(), getCallOptions()), request, responseObserver);
     }
@@ -145,16 +145,16 @@ public final class CountriesServiceGrpc {
 
   /**
    */
-  public static final class CountriesServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<CountriesServiceBlockingStub> {
-    private CountriesServiceBlockingStub(
+  public static final class CountriesBlockingStub extends io.grpc.stub.AbstractBlockingStub<CountriesBlockingStub> {
+    private CountriesBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected CountriesServiceBlockingStub build(
+    protected CountriesBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new CountriesServiceBlockingStub(channel, callOptions);
+      return new CountriesBlockingStub(channel, callOptions);
     }
 
     /**
@@ -163,7 +163,7 @@ public final class CountriesServiceGrpc {
      * (showcases multiple http matching rules with a filter).
      * </pre>
      */
-    public example.api.v1.GetCountriesResponse getCountries(example.api.v1.GetCountriesRequest request) {
+    public gunk.example.v1.GetCountriesResponse getCountries(gunk.example.v1.GetCountriesRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetCountriesMethod(), getCallOptions(), request);
     }
@@ -171,16 +171,16 @@ public final class CountriesServiceGrpc {
 
   /**
    */
-  public static final class CountriesServiceFutureStub extends io.grpc.stub.AbstractFutureStub<CountriesServiceFutureStub> {
-    private CountriesServiceFutureStub(
+  public static final class CountriesFutureStub extends io.grpc.stub.AbstractFutureStub<CountriesFutureStub> {
+    private CountriesFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected CountriesServiceFutureStub build(
+    protected CountriesFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new CountriesServiceFutureStub(channel, callOptions);
+      return new CountriesFutureStub(channel, callOptions);
     }
 
     /**
@@ -189,8 +189,8 @@ public final class CountriesServiceGrpc {
      * (showcases multiple http matching rules with a filter).
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<example.api.v1.GetCountriesResponse> getCountries(
-        example.api.v1.GetCountriesRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<gunk.example.v1.GetCountriesResponse> getCountries(
+        gunk.example.v1.GetCountriesRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetCountriesMethod(), getCallOptions()), request);
     }
@@ -203,10 +203,10 @@ public final class CountriesServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final CountriesServiceImplBase serviceImpl;
+    private final CountriesImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(CountriesServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(CountriesImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -216,8 +216,8 @@ public final class CountriesServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_COUNTRIES:
-          serviceImpl.getCountries((example.api.v1.GetCountriesRequest) request,
-              (io.grpc.stub.StreamObserver<example.api.v1.GetCountriesResponse>) responseObserver);
+          serviceImpl.getCountries((gunk.example.v1.GetCountriesRequest) request,
+              (io.grpc.stub.StreamObserver<gunk.example.v1.GetCountriesResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -240,7 +240,7 @@ public final class CountriesServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (CountriesServiceGrpc.class) {
+      synchronized (CountriesGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)

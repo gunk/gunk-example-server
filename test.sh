@@ -9,8 +9,16 @@ set -e
 (set -x;
   grpcurl \
     -plaintext \
+    localhost:9090 \
+    list
+)
+
+(set -x;
+  grpcurl \
+    -plaintext \
     -d "{\"msg\": \"$MSG\"}" \
-    localhost:9090 v1.UtilService/Echo
+    localhost:9090 \
+    gunk.example.v1.Util/Echo
 )|jq '.'
 
 (set -x;

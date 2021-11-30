@@ -1,4 +1,5 @@
-// +gunk java.Package("example.api.v1")
+// +gunk proto.Package("gunk.example.v1")
+// +gunk java.Package("gunk.example.v1")
 // +gunk java.MultipleFiles(true)
 package v1
 
@@ -6,10 +7,11 @@ import (
 	"github.com/gunk/opt/field"
 	"github.com/gunk/opt/file/java"
 	"github.com/gunk/opt/http"
+	"github.com/gunk/opt/proto"
 )
 
-// UtilService is the util service.
-type UtilService interface {
+// Util is the util service.
+type Util interface {
 	// CheckStatus returns the server health status.
 	//
 	// +gunk http.Match{

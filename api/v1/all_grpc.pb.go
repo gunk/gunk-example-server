@@ -15,216 +15,216 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// CountriesServiceClient is the client API for CountriesService service.
+// CountriesClient is the client API for Countries service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CountriesServiceClient interface {
+type CountriesClient interface {
 	// GetCountries returns a list of countries identified by their ISO code.
 	// (showcases multiple http matching rules with a filter).
 	GetCountries(ctx context.Context, in *GetCountriesRequest, opts ...grpc.CallOption) (*GetCountriesResponse, error)
 }
 
-type countriesServiceClient struct {
+type countriesClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCountriesServiceClient(cc grpc.ClientConnInterface) CountriesServiceClient {
-	return &countriesServiceClient{cc}
+func NewCountriesClient(cc grpc.ClientConnInterface) CountriesClient {
+	return &countriesClient{cc}
 }
 
-func (c *countriesServiceClient) GetCountries(ctx context.Context, in *GetCountriesRequest, opts ...grpc.CallOption) (*GetCountriesResponse, error) {
+func (c *countriesClient) GetCountries(ctx context.Context, in *GetCountriesRequest, opts ...grpc.CallOption) (*GetCountriesResponse, error) {
 	out := new(GetCountriesResponse)
-	err := c.cc.Invoke(ctx, "/v1.CountriesService/GetCountries", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/gunk.example.v1.Countries/GetCountries", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CountriesServiceServer is the server API for CountriesService service.
-// All implementations must embed UnimplementedCountriesServiceServer
+// CountriesServer is the server API for Countries service.
+// All implementations must embed UnimplementedCountriesServer
 // for forward compatibility
-type CountriesServiceServer interface {
+type CountriesServer interface {
 	// GetCountries returns a list of countries identified by their ISO code.
 	// (showcases multiple http matching rules with a filter).
 	GetCountries(context.Context, *GetCountriesRequest) (*GetCountriesResponse, error)
-	mustEmbedUnimplementedCountriesServiceServer()
+	mustEmbedUnimplementedCountriesServer()
 }
 
-// UnimplementedCountriesServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedCountriesServiceServer struct {
+// UnimplementedCountriesServer must be embedded to have forward compatible implementations.
+type UnimplementedCountriesServer struct {
 }
 
-func (UnimplementedCountriesServiceServer) GetCountries(context.Context, *GetCountriesRequest) (*GetCountriesResponse, error) {
+func (UnimplementedCountriesServer) GetCountries(context.Context, *GetCountriesRequest) (*GetCountriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCountries not implemented")
 }
-func (UnimplementedCountriesServiceServer) mustEmbedUnimplementedCountriesServiceServer() {}
+func (UnimplementedCountriesServer) mustEmbedUnimplementedCountriesServer() {}
 
-// UnsafeCountriesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CountriesServiceServer will
+// UnsafeCountriesServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CountriesServer will
 // result in compilation errors.
-type UnsafeCountriesServiceServer interface {
-	mustEmbedUnimplementedCountriesServiceServer()
+type UnsafeCountriesServer interface {
+	mustEmbedUnimplementedCountriesServer()
 }
 
-func RegisterCountriesServiceServer(s grpc.ServiceRegistrar, srv CountriesServiceServer) {
-	s.RegisterService(&CountriesService_ServiceDesc, srv)
+func RegisterCountriesServer(s grpc.ServiceRegistrar, srv CountriesServer) {
+	s.RegisterService(&Countries_ServiceDesc, srv)
 }
 
-func _CountriesService_GetCountries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Countries_GetCountries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCountriesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CountriesServiceServer).GetCountries(ctx, in)
+		return srv.(CountriesServer).GetCountries(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v1.CountriesService/GetCountries",
+		FullMethod: "/gunk.example.v1.Countries/GetCountries",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CountriesServiceServer).GetCountries(ctx, req.(*GetCountriesRequest))
+		return srv.(CountriesServer).GetCountries(ctx, req.(*GetCountriesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CountriesService_ServiceDesc is the grpc.ServiceDesc for CountriesService service.
+// Countries_ServiceDesc is the grpc.ServiceDesc for Countries service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CountriesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "v1.CountriesService",
-	HandlerType: (*CountriesServiceServer)(nil),
+var Countries_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gunk.example.v1.Countries",
+	HandlerType: (*CountriesServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetCountries",
-			Handler:    _CountriesService_GetCountries_Handler,
+			Handler:    _Countries_GetCountries_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "github.com/gunk/gunk-example-server/api/v1/all.proto",
 }
 
-// UtilServiceClient is the client API for UtilService service.
+// UtilClient is the client API for Util service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UtilServiceClient interface {
+type UtilClient interface {
 	// CheckStatus returns the server health status.
 	CheckStatus(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*CheckStatusResponse, error)
 	// Echo echoes a message.
 	Echo(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error)
 }
 
-type utilServiceClient struct {
+type utilClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUtilServiceClient(cc grpc.ClientConnInterface) UtilServiceClient {
-	return &utilServiceClient{cc}
+func NewUtilClient(cc grpc.ClientConnInterface) UtilClient {
+	return &utilClient{cc}
 }
 
-func (c *utilServiceClient) CheckStatus(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*CheckStatusResponse, error) {
+func (c *utilClient) CheckStatus(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*CheckStatusResponse, error) {
 	out := new(CheckStatusResponse)
-	err := c.cc.Invoke(ctx, "/v1.UtilService/CheckStatus", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/gunk.example.v1.Util/CheckStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *utilServiceClient) Echo(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
+func (c *utilClient) Echo(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
 	out := new(Message)
-	err := c.cc.Invoke(ctx, "/v1.UtilService/Echo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/gunk.example.v1.Util/Echo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UtilServiceServer is the server API for UtilService service.
-// All implementations must embed UnimplementedUtilServiceServer
+// UtilServer is the server API for Util service.
+// All implementations must embed UnimplementedUtilServer
 // for forward compatibility
-type UtilServiceServer interface {
+type UtilServer interface {
 	// CheckStatus returns the server health status.
 	CheckStatus(context.Context, *emptypb.Empty) (*CheckStatusResponse, error)
 	// Echo echoes a message.
 	Echo(context.Context, *Message) (*Message, error)
-	mustEmbedUnimplementedUtilServiceServer()
+	mustEmbedUnimplementedUtilServer()
 }
 
-// UnimplementedUtilServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedUtilServiceServer struct {
+// UnimplementedUtilServer must be embedded to have forward compatible implementations.
+type UnimplementedUtilServer struct {
 }
 
-func (UnimplementedUtilServiceServer) CheckStatus(context.Context, *emptypb.Empty) (*CheckStatusResponse, error) {
+func (UnimplementedUtilServer) CheckStatus(context.Context, *emptypb.Empty) (*CheckStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckStatus not implemented")
 }
-func (UnimplementedUtilServiceServer) Echo(context.Context, *Message) (*Message, error) {
+func (UnimplementedUtilServer) Echo(context.Context, *Message) (*Message, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Echo not implemented")
 }
-func (UnimplementedUtilServiceServer) mustEmbedUnimplementedUtilServiceServer() {}
+func (UnimplementedUtilServer) mustEmbedUnimplementedUtilServer() {}
 
-// UnsafeUtilServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UtilServiceServer will
+// UnsafeUtilServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UtilServer will
 // result in compilation errors.
-type UnsafeUtilServiceServer interface {
-	mustEmbedUnimplementedUtilServiceServer()
+type UnsafeUtilServer interface {
+	mustEmbedUnimplementedUtilServer()
 }
 
-func RegisterUtilServiceServer(s grpc.ServiceRegistrar, srv UtilServiceServer) {
-	s.RegisterService(&UtilService_ServiceDesc, srv)
+func RegisterUtilServer(s grpc.ServiceRegistrar, srv UtilServer) {
+	s.RegisterService(&Util_ServiceDesc, srv)
 }
 
-func _UtilService_CheckStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Util_CheckStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UtilServiceServer).CheckStatus(ctx, in)
+		return srv.(UtilServer).CheckStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v1.UtilService/CheckStatus",
+		FullMethod: "/gunk.example.v1.Util/CheckStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilServiceServer).CheckStatus(ctx, req.(*emptypb.Empty))
+		return srv.(UtilServer).CheckStatus(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UtilService_Echo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Util_Echo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Message)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UtilServiceServer).Echo(ctx, in)
+		return srv.(UtilServer).Echo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v1.UtilService/Echo",
+		FullMethod: "/gunk.example.v1.Util/Echo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilServiceServer).Echo(ctx, req.(*Message))
+		return srv.(UtilServer).Echo(ctx, req.(*Message))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UtilService_ServiceDesc is the grpc.ServiceDesc for UtilService service.
+// Util_ServiceDesc is the grpc.ServiceDesc for Util service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UtilService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "v1.UtilService",
-	HandlerType: (*UtilServiceServer)(nil),
+var Util_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gunk.example.v1.Util",
+	HandlerType: (*UtilServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CheckStatus",
-			Handler:    _UtilService_CheckStatus_Handler,
+			Handler:    _Util_CheckStatus_Handler,
 		},
 		{
 			MethodName: "Echo",
-			Handler:    _UtilService_Echo_Handler,
+			Handler:    _Util_Echo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -1,4 +1,4 @@
-// package: v1
+// package: gunk.example.v1
 // file: github.com/gunk/gunk-example-server/api/v1/all.proto
 
 import * as jspb from "google-protobuf";

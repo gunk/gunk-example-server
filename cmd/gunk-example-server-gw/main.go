@@ -33,8 +33,8 @@ func run(ctx context.Context, addr, endpoint, spec string) error {
 	// build gateway mux
 	gw, opts := runtime.NewServeMux(), []grpc.DialOption{grpc.WithInsecure()}
 	for _, f := range []func(context.Context, *runtime.ServeMux, string, []grpc.DialOption) error{
-		examplepb.RegisterUtilServiceHandlerFromEndpoint,
-		examplepb.RegisterCountriesServiceHandlerFromEndpoint,
+		examplepb.RegisterUtilHandlerFromEndpoint,
+		examplepb.RegisterCountriesHandlerFromEndpoint,
 	} {
 		if err := f(ctx, gw, endpoint, opts); err != nil {
 			return err
