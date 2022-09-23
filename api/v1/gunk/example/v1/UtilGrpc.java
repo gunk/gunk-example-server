@@ -1,11 +1,24 @@
 package gunk.example.v1;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
+import static io.grpc.stub.ClientCalls.blockingUnaryCall;
+import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.36.0)",
+    value = "by gRPC proto compiler (version 1.28.1)",
     comments = "Source: github.com/gunk/gunk-example-server/api/v1/all.proto")
 public final class UtilGrpc {
 
@@ -129,7 +142,7 @@ public final class UtilGrpc {
      */
     public void checkStatus(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<gunk.example.v1.CheckStatusResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCheckStatusMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getCheckStatusMethod(), responseObserver);
     }
 
     /**
@@ -139,21 +152,21 @@ public final class UtilGrpc {
      */
     public void echo(gunk.example.v1.Message request,
         io.grpc.stub.StreamObserver<gunk.example.v1.Message> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEchoMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getEchoMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getCheckStatusMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
+            asyncUnaryCall(
               new MethodHandlers<
                 com.google.protobuf.Empty,
                 gunk.example.v1.CheckStatusResponse>(
                   this, METHODID_CHECK_STATUS)))
           .addMethod(
             getEchoMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
+            asyncUnaryCall(
               new MethodHandlers<
                 gunk.example.v1.Message,
                 gunk.example.v1.Message>(
@@ -183,7 +196,7 @@ public final class UtilGrpc {
      */
     public void checkStatus(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<gunk.example.v1.CheckStatusResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
+      asyncUnaryCall(
           getChannel().newCall(getCheckStatusMethod(), getCallOptions()), request, responseObserver);
     }
 
@@ -194,7 +207,7 @@ public final class UtilGrpc {
      */
     public void echo(gunk.example.v1.Message request,
         io.grpc.stub.StreamObserver<gunk.example.v1.Message> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
+      asyncUnaryCall(
           getChannel().newCall(getEchoMethod(), getCallOptions()), request, responseObserver);
     }
   }
@@ -219,7 +232,7 @@ public final class UtilGrpc {
      * </pre>
      */
     public gunk.example.v1.CheckStatusResponse checkStatus(com.google.protobuf.Empty request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+      return blockingUnaryCall(
           getChannel(), getCheckStatusMethod(), getCallOptions(), request);
     }
 
@@ -229,7 +242,7 @@ public final class UtilGrpc {
      * </pre>
      */
     public gunk.example.v1.Message echo(gunk.example.v1.Message request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+      return blockingUnaryCall(
           getChannel(), getEchoMethod(), getCallOptions(), request);
     }
   }
@@ -255,7 +268,7 @@ public final class UtilGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<gunk.example.v1.CheckStatusResponse> checkStatus(
         com.google.protobuf.Empty request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
+      return futureUnaryCall(
           getChannel().newCall(getCheckStatusMethod(), getCallOptions()), request);
     }
 
@@ -266,7 +279,7 @@ public final class UtilGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<gunk.example.v1.Message> echo(
         gunk.example.v1.Message request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
+      return futureUnaryCall(
           getChannel().newCall(getEchoMethod(), getCallOptions()), request);
     }
   }

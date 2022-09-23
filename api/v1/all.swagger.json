@@ -148,6 +148,7 @@
         "parameters": [
           {
             "name": "body",
+            "description": "Message is a echo message.",
             "in": "body",
             "required": true,
             "schema": {
